@@ -36,7 +36,7 @@ perl ~/las/git_bin/TElib_benchmark/util/cleanup_tandem.pl -misschar N -nc 50000 
 
 # run TIR-Learner
 
-# convert TIR-Learner names into RepeatMasker readible names, seperate MITE (<600bp) and TIR elements
+# convert TIR-Learner names into RepeatMasker readable names, separate MITE (<600bp) and TIR elements
 perl ~/las/git_bin/TElib_benchmark/util/rename_tirlearner.pl $genome.TIR-Learner.fa > $genome.TIR-Learner.fa.renamed
 
 # clean up tandem repeats and short seq with cleanup_tandem.pl
@@ -63,7 +63,7 @@ perl ~/las/git_bin/TElib_benchmark/bin/MITE-Hunter2/MITE_Hunter_manager.pl -l 2 
 # get all candidate sequences
 cat $genome.mite/$genome.mites_Step8_* > $genome.MITE-Hunter.fa
 
-# convert name to RM readible
+# convert name to RM readable
 perl -i -nle 's/MITEhunter//; print $_ and next unless /^>/; my $id = (split)[0]; print "${id}#MITE/unknown"' $genome.MITE-Hunter.fa
 
 # remove MITEs existed in TIR-Learner results, clean up tandem repeats and short seq with cleanup_tandem.pl

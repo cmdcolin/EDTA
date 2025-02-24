@@ -25,7 +25,7 @@ my $usage = "\nProvide initial filterings for raw TE libraries and generate stag
 		-tir	[File]	The raw TIR library FASTA
 		-mite	[File]	The raw MITE library FASTA
 		-helitron	[File]	The raw Helitron library FASTA
-		-threads	[int]	Number of theads to run this script
+		-threads	[int]	Number of threads to run this script
 		-help|-h	Display this help info
 \n";
 
@@ -125,7 +125,7 @@ chdir '..';
 # make a TIR folder for EDTA processing
 `mkdir $genome.TIR.EDTA_process` unless -e "$genome.TIR.EDTA_process" && -d "$genome.TIR.EDTA_process";
 
-# convert TIR-Learner names into RepeatMasker readible names, seperate MITE (<600bp) and TIR elements
+# convert TIR-Learner names into RepeatMasker readable names, separate MITE (<600bp) and TIR elements
 `perl $rename_tirlearner $genome.TIR.raw.fa | perl $rename_TE - > $genome.TIR.EDTA_process/$genome.TIR.raw.fa.renamed`;
 
 # clean up tandem repeats and short seq with cleanup_tandem.pl
@@ -139,7 +139,7 @@ chdir '..';
 `cp $genome.MITE.raw.fa $genome.TIR.EDTA_process`;
 chdir "$genome.TIR.EDTA_process";
 
-# convert name to RM readible
+# convert name to RM readable
 `perl -i -nle \'s/MITEhunter//; print $_ and next unless /^>/; my \$id = (split)[0]; print \"\${id}#MITE/unknown\"\' $genome.MITE.raw.fa`;
 `perl $rename_TE $genome.MITE.raw.fa > $genome.MITE.raw.fa.renamed`;
 

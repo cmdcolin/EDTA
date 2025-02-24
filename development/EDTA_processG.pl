@@ -29,7 +29,7 @@ my $usage = "\nPerform EDTA basic and advcanced filterings for raw TE candidates
 		-protlib [File] Protein-coding aa sequences to be removed from TE candidates. (default lib: alluniRefprexp082813 (plant))
 					You may use uniprot_sprot database available from here:
 					ftp://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/taxonomic_divisions/
-		-threads	[int]	Number of theads to run this script
+		-threads	[int]	Number of threads to run this script
 		-help|-h	Display this help info
 \n";
 
@@ -130,7 +130,7 @@ if (0){
 ######  Process TIR and MITE ######
 ###################################
 
-# convert names into RepeatMasker readible names, seperate MITE (<600bp) and TIR elements
+# convert names into RepeatMasker readable names, separate MITE (<600bp) and TIR elements
 `perl $rename_tirlearner $genome.TIR.raw.fa | perl $rename_TE - > $genome.TIR.raw.fa.renamed`;
 `perl -nle \'s/MITEhunter//; print \$_ and next unless /^>/; my \$id = (split)[0]; print \"\${id}#MITE/unknown\"\' $genome.MITE.raw.fa | perl $rename_TE - > $genome.MITE.raw.fa.renamed`;
 

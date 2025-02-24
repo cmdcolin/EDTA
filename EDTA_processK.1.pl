@@ -34,7 +34,7 @@ my $usage = "\nPerform EDTA basic and advance filtering for raw TE candidates an
 		-mindiff_hel	[float]	The minimum fold difference in richness between Helitrons and contaminants (default: 2)
 		-repeatmasker [path]	The directory containing RepeatMasker (default: read from ENV)
 		-blast [path]	The directory containing Blastn (default: read from ENV)
-		-threads|-t	[int]	Number of theads to run this script
+		-threads|-t	[int]	Number of threads to run this script
 		-help|-h	Display this help info
 \n";
 
@@ -130,7 +130,7 @@ chdir "$genome.EDTA.combine";
 # This function better works for redundant libraries
 sub Purifier() {
 	my ($TE1, $TE2, $mindiff) = ($_[0], $_[1], $_[2]);
-	# mark contaminents with lowercase letters based on relative richness
+	# mark contaminants with lowercase letters based on relative richness
 	`perl $TE_purifier -TE1 $TE1 -TE2 $TE2 -t $threads -mindiff $mindiff`;
 	# remove lowercase sequences
 	`perl $cleanup_tandem -misschar l -Nscreen 1 -nc 50000 -nr 0.8 -minlen 80 -cleanN 1 -cleanT 1 -minrm 1 -trf 0 -f $TE1-$TE2.fa > $TE1.HQ`;

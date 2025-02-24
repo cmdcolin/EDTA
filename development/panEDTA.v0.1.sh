@@ -148,7 +148,7 @@ for i in `cat $genome_list`; do
 	fi
 done
 
-## Step 2, make pan-genome lib (quick step, use a sigle node is fine)
+## Step 2, make pan-genome lib (quick step, use a single node is fine)
 # get fl-TE with ≥ $fl_copy copies in each genome
 for i in `cat $genome_list`; do   
 	genome=`basename $(echo $i|awk '{print $1}') 2>/dev/null`
@@ -158,7 +158,7 @@ for i in `cat $genome_list`; do
                 break
         fi
 
-	echo "Idenfity full-length TEs for genome $genome"
+	echo "Identify full-length TEs for genome $genome"
 	perl $path/bin/find_flTE.pl $genome.mod.EDTA.anno/$genome.mod.EDTA.RM.out | \
 		awk '{print $10}'| \
 		sort| \

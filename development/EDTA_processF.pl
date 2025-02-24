@@ -28,7 +28,7 @@ my $usage = "\nPerform EDTA basic and advcanced filterings for raw TE candidates
 		-protlib [File] Protein-coding aa sequences to be removed from TE candidates. (default lib: alluniRefprexp082813 (plant))
 					You may use uniprot_sprot database available from here:
 					ftp://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/taxonomic_divisions/
-		-threads|-t	[int]	Number of theads to run this script
+		-threads|-t	[int]	Number of threads to run this script
 		-help|-h	Display this help info
 \n";
 

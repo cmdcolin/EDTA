@@ -47,7 +47,7 @@ perl EDTA.pl [options]
 				(1, rerun) or not (0, default).
 	--cds [File]	Provide a FASTA file containing the coding sequence (no introns,
 			UTRs, nor TEs) of this genome or its close relative.
-	--curatedlib [File]	Provided a curated library to keep consistant naming and
+	--curatedlib [File]	Provided a curated library to keep consistent naming and
 				classification for known TEs. TEs in this file will be
 				trusted 100%, so please ONLY provide MANUALLY CURATED ones.
 				This option is not mandatory. It's totally OK if no file is
@@ -72,8 +72,8 @@ perl EDTA.pl [options]
 			Default: 1.3e-8 (per bp per year, from rice).
 	--repeatmodeler [path]	The directory containing RepeatModeler (default: read from ENV)
 	--repeatmasker [path]	The directory containing RepeatMasker (default: read from ENV)
-	--check_dependencies Check if dependencies are fullfiled and quit
-	--threads|-t [int]	Number of theads to run this script (default: 4)
+	--check_dependencies Check if dependencies are fulfilled and quit
+	--threads|-t [int]	Number of threads to run this script (default: 4)
 	--debug	 [0|1]	Retain intermediate files (default: 0)
 	--help|-h 	Display this help info
 \n";
@@ -89,7 +89,7 @@ my $cds = ''; #a fasta file containing cds of this genome.
 my $sensitive = 0; #0, will not run RepeatModeler to get remaining TEs (default). 1, run RepeatModeler
 my $anno = 0; #0, will not annotate whole-genome TE (default). 1, annotate with RepeatMasker
 my $rmout = ''; #a RM .out file for custom homology-based annotation.
-my $evaluate = 0; #1 will evaluate the consistancy of the TE annotation
+my $evaluate = 0; #1 will evaluate the consistency of the TE annotation
 my $exclude = ''; #a bed file exclude from TE annotation
 my $force = 0; #if there is no confident TE found in EDTA_raw, 1 will use rice TEs as raw lib, 0 will error and interrupt.
 my $miu = 1.3e-8; #mutation rate, per bp per year, from rice
@@ -185,7 +185,7 @@ if ( (! -s $genome) and (! $check_dependencies) ){
            -exitval => 2 } );
 	}
 
-# check bolean
+# check boolean
 if ($overwrite != 0 and $overwrite != 1){ die "The expected value for the overwrite parameter is 0 or 1!\n"}
 if ($sensitive != 0 and $sensitive != 1){ die "The expected value for the sensitive parameter is 0 or 1!\n"}
 if ($anno != 0 and $anno != 1){ die "The expected value for the anno parameter is 0 or 1!\n"}
@@ -315,7 +315,7 @@ if ($raw_id > $old_id){
 # remove sequence annotations (content after the first space in sequence names) and replace special characters with _
 `perl -nle 'my \$info=(split)[0]; \$info=~s/[\\~!@#\\\$%\\^&\\*\\(\\)\\+\\\-\\=\\?\\[\\]\\{\\}\\:;",\\<\\/\\\\\|]+/_/g; \$info=~s/_+/_/g; print \$info' $genome > $genome.mod`;
 
-# try to shortern sequences
+# try to shorten sequences
 my $id_len_max = 13; # allowed longest length of a sequence ID in the input file
 if ($id_len > $id_len_max){
 	chomp ($date = `date`);

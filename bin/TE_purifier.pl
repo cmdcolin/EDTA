@@ -23,7 +23,7 @@ my $usage = "
 							TE1-TE2.fa file. Useful to test different -mindiff settings. default 0.
 				-repeatmasker	[path]	The directory containing RepeatMasker (default: read from ENV)
 				-blastplus	[path]	The directory containing Blastn (default: read from ENV)
-				-threads	[int]	Number of theads to run this script
+				-threads	[int]	Number of threads to run this script
 				-help|-h	Display this help info
 \n";
 

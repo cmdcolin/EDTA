@@ -84,7 +84,7 @@ cd ..
 # make a TIR folder for EDTA processing
 mkdir $genome.TIR.EDTA_process
 
-# convert TIR-Learner names into RepeatMasker readible names, seperate MITE (<600bp) and TIR elements
+# convert TIR-Learner names into RepeatMasker readable names, separate MITE (<600bp) and TIR elements
 perl ~/las/git_bin/TElib_benchmark/util/rename_tirlearner.pl $genome.TIR.raw.fa | perl ~/las/git_bin/TElib_benchmark/util/rename_TE.pl - > $genome.TIR.EDTA_process/$genome.TIR.raw.fa.renamed
 
 # clean up tandem repeats and short seq with cleanup_tandem.pl
@@ -99,7 +99,7 @@ perl ~/las/git_bin/TElib_benchmark/util/cleanup_tandem.pl -misschar N -nc 50000 
 cp $genome.MITE.raw.fa $genome.TIR.EDTA_process
 cd $genome.TIR.EDTA_process
 
-# convert name to RM readible
+# convert name to RM readable
 perl -i -nle 's/MITEhunter//; print $_ and next unless /^>/; my $id = (split)[0]; print "${id}#MITE/unknown"' $genome.MITE.raw.fa
 perl ~/las/git_bin/TElib_benchmark/util/rename_TE.pl $genome.MITE.raw.fa > $genome.MITE.raw.fa.renamed
 

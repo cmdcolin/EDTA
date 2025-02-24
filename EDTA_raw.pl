@@ -48,7 +48,7 @@ perl EDTA_raw.pl [options]
 	--mdust		[path]	Path to the mdust program. (default: find from ENV)
 	--repeatmasker	[path]	Path to the RepeatMasker program. (default: find from ENV)
 	--repeatmodeler	[path]	Path to the RepeatModeler2 program. (default: find from ENV)
-	--threads|-t	[int]	Number of theads to run this script. Default: 4
+	--threads|-t	[int]	Number of threads to run this script. Default: 4
 	--help|-h	Display this help info
 \n";
 
@@ -145,7 +145,7 @@ if ($species){
 
 die "The expected value for the type parameter is ltr or tir or helitron or all!\n" unless $type eq "ltr" or $type eq "line" or $type eq "tir" or $type eq "helitron" or $type eq "sine" or $type eq "all";
 
-# check bolean
+# check boolean
 if ($overwrite != 0 and $overwrite != 1){ die "The expected value for the overwrite parameter is 0 or 1!\n"};
 if ($convert_name != 0 and $convert_name != 1){ die "The expected value for the convert_seq_name parameter is 0 or 1!\n"};
 if ($threads !~ /^[0-9]+$/){ die "The expected value for the threads parameter is an integer!\n"};
@@ -330,7 +330,7 @@ if (-s "$genome.mod"){
 # remove sequence annotations (content after the first space in sequence names) and replace special characters with _, convert non-ATGC bases into Ns
 `perl -nle 'my \$info=(split)[0]; \$info=~s/[\\~!@#\\\$%\\^&\\*\\(\\)\\+\\\-\\=\\?\\[\\]\\{\\}\\:;",\\<\\/\\\\\|]+/_/g; \$info=~s/_+/_/g; \$info=~s/[^ATGCN]/N/gi unless /^>/; print \$info' $genome > $genome.$rand.mod`;
 
-# try to shortern sequences
+# try to shorten sequences
 my $id_len_max = 13; # allowed longest length of a sequence ID in the input file
 if ($id_len > $id_len_max){
 	chomp ($date = `date`);

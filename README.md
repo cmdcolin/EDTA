@@ -48,7 +48,7 @@ There are several ways to install EDTA. You just need to find the one that works
 
 ### Install with conda/[mamba](https://github.com/mamba-org/mamba) (Linux64)
 
-Recommend to ceate a dedicated environment for EDTA:
+Recommend to create a dedicated environment for EDTA:
 
 ```
 conda create -n EDTA
@@ -124,11 +124,11 @@ Usage:
 
 Visit [BioContainers](https://quay.io/repository/biocontainers/edta?tab=tags) repository for a list of available tags (e.g., `2.2.0--hdfd78af_1`).
 
-Note: Because only the current directory is mounted to the EDTA docker container, you have to copy all needed files to the current directory and provide them to EDTA without path specifications. Even providing the absolute path to the file located in this folder won't work. Softlinked files are considered "with path" and won't work. Similarily, specifying your own versions of dependency programs (i.e., repeatmasker, repeatmodeler) won't work because they have paths.
+Note: Because only the current directory is mounted to the EDTA docker container, you have to copy all needed files to the current directory and provide them to EDTA without path specifications. Even providing the absolute path to the file located in this folder won't work. Softlinked files are considered "with path" and won't work. Similarly, specifying your own versions of dependency programs (i.e., repeatmasker, repeatmodeler) won't work because they have paths.
 
 
 ## Testing
-You should test the EDTA pipeline with a 1-Mb toy genome, which takes about five mins. If your test finishs without any errors (warnings are OK), then EDTA should be correctly installed. If the test is OK but you encounter errors with your data, you should check your own data for any formating/naming mistakes.
+You should test the EDTA pipeline with a 1-Mb toy genome, which takes about five mins. If your test finishes without any errors (warnings are OK), then EDTA should be correctly installed. If the test is OK but you encounter errors with your data, you should check your own data for any formating/naming mistakes.
 
 ```
 cd ./EDTA/test
@@ -177,7 +177,7 @@ Optional 2, when you specify the `--anno 1` parameter, you will get:
 					 anno: perform whole-genome annotation/analysis after TE library construction.
       --overwrite [0|1]		If previous results are found, decide to overwrite (1, rerun) or not (0, default).
       --cds [File]		Provide a FASTA file containing the coding sequence (no introns, UTRs, nor TEs) of this genome or its close relative.
-      --curatedlib [file]	Provided a curated library to keep consistant naming and classification for known TEs.
+      --curatedlib [file]	Provided a curated library to keep consistent naming and classification for known TEs.
 				All TEs in this file will be trusted 100%, so please ONLY provide MANUALLY CURATED ones here.
 				 This option is not mandatory. It's totally OK if no file is provided (default).
       --rmlib	[File]	Provide the RepeatModeler library containing classified TEs to enhance
@@ -198,11 +198,11 @@ Optional 2, when you specify the `--anno 1` parameter, you will get:
 			(default); 1, use rice TEs to continue.
       --u [float]	Neutral mutation rate to calculate the age of intact LTR elements.
 			 Intact LTR age is found in this file: *EDTA_raw/LTR/*.pass.list. Default: 1.3e-8 (per bp per year, from rice).
-      --threads|-t	[int]	Number of theads to run this script (default: 4)
+      --threads|-t	[int]	Number of threads to run this script (default: 4)
       --help|-h	Display this help info
 
 ### Divide and conquer
-*Identify intact elements of a paticular TE type*:
+*Identify intact elements of a particular TE type*:
 
 1.Get raw TEs from a genome (specify `-type ltr|tir|helitron` in different runs)
 
@@ -215,7 +215,7 @@ Optional 2, when you specify the `--anno 1` parameter, you will get:
 			Intact LTR age is found in this file: *EDTA_raw/LTR/*.pass.list.
                         Default: 1.3e-8 (per bp per year, from rice).
       --overwrite	[0|1]	If previous results are found, decide to overwrite (1, rerun) or not (0, default).
-      --threads|-t	[int]	Number of theads to run this script
+      --threads|-t	[int]	Number of threads to run this script
       --help|-h	Display this help info
 
 2.Finish the rest of the EDTA analysis (specifying `--overwrite 0` and it will automatically pick up existing results in the work folder)
@@ -228,7 +228,7 @@ Optional 2, when you specify the `--anno 1` parameter, you will get:
 3. Check out the [Wiki page](https://github.com/oushujun/EDTA/wiki) for more information and frequently asked questions.
 
 ## panEDTA usage
-This is the serial version of panEDTA. Each genome will be annotated sequentially and then combined with the panEDTA functionality. Existing EDTA annotation of genomes (EDTA run with --anno 1) will be recognized and reused. A way to acclerate the pan-genome annotation is to execute EDTA annotation of each genomes separately and in parallel, then execute panEDTA to finish the remaining of the runs. You may want to save the GFF files and the sum file of the EDTA results of each genome because they will be overwritten by panEDTA. To help filtering out gene-related sequences, at least one CDS file is required. Please read [wiki](https://github.com/oushujun/EDTA/wiki/Making-sense-of-EDTA-usage-and-outputs---Q&A) for the CDS requirement. You may want to check out the toy example in the ./test folder to get familiarized.
+This is the serial version of panEDTA. Each genome will be annotated sequentially and then combined with the panEDTA functionality. Existing EDTA annotation of genomes (EDTA run with --anno 1) will be recognized and reused. A way to accelerate the pan-genome annotation is to execute EDTA annotation of each genomes separately and in parallel, then execute panEDTA to finish the remaining of the runs. You may want to save the GFF files and the sum file of the EDTA results of each genome because they will be overwritten by panEDTA. To help filtering out gene-related sequences, at least one CDS file is required. Please read [wiki](https://github.com/oushujun/EDTA/wiki/Making-sense-of-EDTA-usage-and-outputs---Q&A) for the CDS requirement. You may want to check out the toy example in the ./test folder to get familiarized.
 
     sh panEDTA.sh -g genome_list.txt -c cds.fasta -t 10
         -g	A list of genome files with paths accessible from the working directory.
@@ -260,7 +260,7 @@ If you developed a new TE method/got a TE library and want to compare it's annot
         -std	[file]	RepeatMasker .out file of the standard library
         -tst	[file]	RepeatMasker .out file of the test library
         -cat	[string]	Testing TE category. Use one of LTR|nonLTR|LINE|SINE|TIR|MITE|Helitron|Total|Classified
-        -N	[0|1]	Include Ns in total length of the genome. Defaule: 0 (not include Ns).
+        -N	[0|1]	Include Ns in total length of the genome. Default: 0 (not include Ns).
         -unknown	[0|1]	Include unknown annotations to the testing category. This should be used when
                         the test library has no classification and you assume they all belong to the
                         target category specified by -cat. Default: 0 (not include unknowns)

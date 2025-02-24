@@ -210,7 +210,7 @@ while IFS= read -r i; do
 #fi #test
 done < "$genome_list"
 
-## Step 2, make pan-genome lib (quick step, use a sigle node is fine)
+## Step 2, make pan-genome lib (quick step, use a single node is fine)
 # get fl-TE with ≥ $fl_copy copies in each genome
 printf "\n%s\n" "$(date)"
 for genome in $genomes; do
