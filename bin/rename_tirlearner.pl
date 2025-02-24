@@ -4,7 +4,7 @@ use strict;
 #Shujun Ou (shujun.ou.1@gmail.com; 05/16/2019)
 
 my $usage = "
-	Rename TIR-Learner output fasta to RepeatMasker readible format\n
+	Rename TIR-Learner output fasta to RepeatMasker readable format\n
 	perl rename_tirlearner.pl TIR-Learner.out.fasta > TIR-Learner.out.fasta.renamed\n\n";
 
 my $len_cutoff = 600; #TIR elements <= this value are classified as MITEs, others DNA TEs.

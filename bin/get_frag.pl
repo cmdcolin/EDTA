@@ -10,7 +10,7 @@ use threads::shared;
 #		    This is handeled by the keep_nest.pl script.
 #		2. Remove the region in the minuend entry that is overlapping with the subtrahend entry
 #		3. Keep the minuend region that is not overlapping with the subtrahend region
-#usage: Modified from substract_parallel.pl
+#usage: Modified from subtract_parallel.pl
 #	perl get_frag.pl minuend.list subtrahend.list thread_num
 #Author: Shujun Ou (shujun.ou.1@gmail.com), 12/19/2019
 
@@ -53,7 +53,7 @@ close Minuend;
 
 ## initiate a number of worker threads and run
 foreach (1..$threads){
-	threads -> create(\&substract);
+	threads -> create(\&subtract);
 	}
 foreach (threads -> list()){
 	$_ -> join();
@@ -66,8 +66,8 @@ foreach my $id (sort {$a cmp $b} keys %diff){
 	}
 close Diff;
 
-## subrotine to perform substraction
-sub substract(){
+## subrotine to perform subtraction
+sub subtract(){
 	while (defined ($_ = $queue->dequeue())){
 	my $keep=1;
 	my ($chr, $from, $to, $type, $entry) = (@{$_}[0], @{$_}[1], @{$_}[2], @{$_}[3], @{$_}[4]);

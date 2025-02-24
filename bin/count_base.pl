@@ -2,9 +2,9 @@
 use warnings;
 use strict;
 
-my $seperate=0;
+my $separate=0;
 if (defined $ARGV[1]){
-	$seperate=1 if $ARGV[1] eq '-s'; #use -s to output each chromosome length
+	$separate=1 if $ARGV[1] eq '-s'; #use -s to output each chromosome length
 }
 
 my $length=0; #length of all seq including gaps
@@ -25,7 +25,7 @@ while (<File>){
 	next unless $chr_len>0;
 	$seq_count++;
 	my $chr_mis=$N_count/$chr_len;
-	print "$id\t$chr_len\t$N_count\t$chr_mis\n" if $seperate==1;
+	print "$id\t$chr_len\t$N_count\t$chr_mis\n" if $separate==1;
 	$N_length+=$N_count;
 	}
 my $missing=$N_length/$length;

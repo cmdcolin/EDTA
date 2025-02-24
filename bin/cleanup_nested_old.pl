@@ -24,7 +24,7 @@ perl cleanup_nested.pl -in file.fasta [options]
 	-cov	[float]	Minimum coverage of the query sequence to be considered as nesting. Default: 0.95
 	-minlen	[int]	Minimum length of the clean sequence to retain. Default: 80 (bp)
 	-miniden	[int]	Minimum identity of the clean sequence to retain. Default: 80 (%)
-	-iter	[int]	Numbers of iteration to remove redundency. Default: automatic
+	-iter	[int]	Numbers of iteration to remove redundancy. Default: automatic
 	-blastplus [path]	Path to the blastn and makeblastdb program.
 	-threads|-t	[int]	Threads to run this script. Default: 4
 \n";

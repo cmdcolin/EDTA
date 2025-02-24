@@ -18,9 +18,9 @@ Usage: perl make_masked.pl -genome unmasked_genome.fa [options]
 
 # dependentcies
 my $script_path = $FindBin::Bin;
-my $substract = "$script_path/substract_parallel.pl";
+my $subtract = "$script_path/subtract_parallel.pl";
 my $combine = "$script_path/combine_overlap.pl";
-die "The script substract_parallel.pl is not found in $substract!\n" unless -s $substract;
+die "The script subtract_parallel.pl is not found in $subtract!\n" unless -s $subtract;
 die "The script combine_overlap.pl is not found in $combine!\n" unless -s $combine;
 
 # parameters
@@ -107,7 +107,7 @@ close RMnew;
 if ($exclude ne ''){
 	die "The exclude BED file $exclude is empty or not exist!\n" unless -s $exclude;
 	`perl $combine $exclude $exclude.cbi`;
-	`perl $substract $RMout.new.bed.cbi $exclude.cbi $threads`;
+	`perl $subtract $RMout.new.bed.cbi $exclude.cbi $threads`;
 	`mv $RMout.new.bed.cbi-$exclude.cbi $RMout.target.bed`;
 	`rm $RMout.new.bed $RMout.new.bed.cbi $exclude.cbi`;
 	}

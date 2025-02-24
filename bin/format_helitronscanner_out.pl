@@ -10,7 +10,7 @@ my $usage = "\nFilter HelitronScanner fasta candidates
 		-keepshorter	[0|1]	1 will keep the shorter possible when multi 5' end presents (default); 0 will not; 2 will keep all possible 5' ends.
 		-extlen	[int]	Length of flanking sequence for blast and output. Default: 30 (bp)
 		-extout	[0|1]	Output original sequence (0, default) or extended (1) sequence.
-		-h|-help	Display this help messege and exit.
+		-h|-help	Display this help message and exit.
 \n";
 
 my $genome = '';

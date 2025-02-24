@@ -4,7 +4,7 @@ use strict;
 use File::Basename;
 
 my $usage="
-Clean up sequence using blast resuls
+Clean up sequence using blast results
 
 perl purger.pl -blast blast_outfmt6 -seq seq.fa [options]
 
@@ -33,7 +33,7 @@ my $script_path = dirname(__FILE__);
 
 my $seq; #provide the sequence to be purged
 my $blast; #provide the blast outfmt=6 result
-my $evalue=0.001; #evalue cutoff for blast entries. Evalues lower than this cutoff is considered a real alignment.
+my $evalue=0.001; #evalue cutoff for blast entries. Evaluates lower than this cutoff is considered a real alignment.
 my $length=90; #length cutoff (bp, default 90) to be considered as a real alignment (= alignment length - mismatch)
 my $identity=35; #identity cutoff (%, default 35) to be considered as a read alignment
 my $purge=1; #switch on=1(default)/off=0 to clean up aligned region and joint unaligned sequences

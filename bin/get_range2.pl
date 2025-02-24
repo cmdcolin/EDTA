@@ -10,7 +10,7 @@ my $usage="to out put some information from the ltrharvest_screen.scn/ltrdigest_
 
 my $version="
 	Version: 
-		v2.0 Shujun Ou	07-06-2016 Add -extlen parameter that allows customized coordiate extension. Default: 50
+		v2.0 Shujun Ou	07-06-2016 Add -extlen parameter that allows customized coordinate extension. Default: 50
 		v1.9 Shujun Ou	03-17-2016 Add -fl parameter to output LTR regions with 50 bp two-end-extended coordinates, also change -x to 50bp extension.
 		v1.8 Shujun Ou	04-16-2015 Add -g parameter to take whole genome file as input, instead of the *ltrTE.fa file from LTRharvest
 		v1.7 Shujun Ou	04-08-2015 Add -int parameter to output the internal region coordinates to the fasta name
@@ -34,7 +34,7 @@ my $max_iLratio=50; #dft=50, maximum internal/LTR region length ratio
 my $boundary=0; #0 for no boundary cutting (default). 1 will walk 10bp inside the original range on both ends for boundary alignment.
 my $flanking=0; #0 for no flanking output. 1 will output extra 50 bp flanking at both ends for boundary correction, TSD searching, and LTR judging.
 my $extend=0; #0 for no region extension (default). 1 will extend 50bp outside the original range for boundary adjustment.
-my $extlen=50; #if $extend==1, then extend the coordiate for $extlen on each side. Default: 50
+my $extlen=50; #if $extend==1, then extend the coordinate for $extlen on each side. Default: 50
 my $longer=0; #0 for no right and left LTR length comparison, 1 will output the longer LTR region only.
 my $full=0; #0 will not output full length loci. 1 will output the full range loci.
 my $in=0; #0 will not output internal region to the list. 1 will output lLTR, rLTR and internal region in separate lines.

@@ -28,7 +28,7 @@ perl cleanup_nested.pl -in file.fasta [options]
 -miniden	[int]	Minimum identity of the clean sequence to retain. Default: 80 (%)
 -clean	[int]	Clean nested sequences (1) or not (0). Default: 1
 -maxcount	[int]	Specify the maximum number of stat lines you want to obtain. Default: 0 (no limit)
--iter	[int]	Numbers of iteration to remove redundency. Default: automatic
+-iter	[int]	Numbers of iteration to remove redundancy. Default: automatic
 -blastplus [path]	Path to the blastn and makeblastdb program.
 -threads|-t	[int]	Threads to run this script. Default: 4
 \n";
@@ -211,7 +211,7 @@ sub condenser(){
 			$qcov = sprintf("%.3f", $qcov);
 
 			if ($qcov >= $coverage or $scov >= $coverage) {
-				# replace bases of HSPs regions to R (aka Remove); this masking is nessary since the subject sequence 
+				# replace bases of HSPs regions to R (aka Remove); this masking is necessary since the subject sequence 
 				# may be cleaned several times, for each non-overlapping merged HSPs regions.
 				for my $hsp (@{$merged_hsps{$sbj}}) {
 					my ($start, $end) = ($hsp->[0], $hsp->[1]);
@@ -224,12 +224,12 @@ sub condenser(){
 				if ($sbj_len_new >= $minlen and $sbj_len_new < length $seq{$sbj} and $clean == 1){
 					print STAT "$sbj\tIter$i\tCleaned. $poss covering $qcov of $id; identity: $scaled_iden; merged $merged\n";
 					$seq{$sbj} = $seq_new; #overwrite the sbj sequence if the new one is shorter
-					$touched_seq{$sbj} = 1; # this subject sequence was modifed, and we will not deal with it any more in the current iteration
+					$touched_seq{$sbj} = 1; # this subject sequence was modified, and we will not deal with it any more in the current iteration
 					$count_stat++;
 				} elsif ($sbj_len_new < $minlen) {
 					print STAT "$sbj\tIter$i\tDiscarded. Has only $sbj_len_new bp after cleaning by $id; identity: $scaled_iden; merged $merged\n";
 					delete $seq{$sbj}; #delete this sequence if new seq is too short
-					$touched_seq{$sbj} = 1; # this subject sequence was modifed (removed), and we will not deal with it any more in the current iteration
+					$touched_seq{$sbj} = 1; # this subject sequence was modified (removed), and we will not deal with it any more in the current iteration
 					$count_stat++;
 				}
 				# When $count_stat reaches the user defined stat count, we end the entire queue.

@@ -13,7 +13,7 @@ Update history:
 	v2.2	support -ex. Exclude the sequence information provided by list and output the rest. Can use with -cov
 	v2.1	support - direction. If the locus position is upside down, eg. Chr1:2..1, it would be treated as negative strand request	Shujun Ou 2014/8/19
 	v2.0	Increase speed and reduce memory consumption by introducing the substr function, remove the - direction support	Shujun Ou 2014/8/17
-	v1.4	Fix the out of range coordiante	Shujun Ou 2014/07/25
+	v1.4	Fix the out of range coordinate	Shujun Ou 2014/07/25
 	v1.3	addin custom database support	Shujun Ou 2013/11/27
 	v1.2	get rid of the LOC file, use MSU locus format (eg. Chr01:10000..11000) to call sequence in batch	Shujun Ou 2013/11/16
 	v1.1	ignore not exist LOC in the list	Shujun Ou 2013/06/21
@@ -27,10 +27,10 @@ Update history:
 #LTR-683241..694400[1]   9311-Chr1:683241..683682
 
 my $position='';
-my $range='itself'; ##defalut
+my $range='itself'; ##default
 my $header=1; #1, output sequence headers (default); 0, no headers
 my $length=0; ### default get the LOC seq itself
-my $rmvoid=0; #0 for output empty sequences anyways; 1 for output only non-empty sequences. Sequenece with all Ns or Xs are also considered empty.
+my $rmvoid=0; #0 for output empty sequences anyways; 1 for output only non-empty sequences. Sequence with all Ns or Xs are also considered empty.
 my $exclude=0; #0 for output sequence specified by list (default); 1 for exclude sequence specified by list
 my $coverage=1; #work with $exclude, if the excluded portion is too long (default 1, [0-1]), discard the entire sequence
 my $purge=0; #work with $exclude, switch on=1/off=0(default) to clean up aligned region and joint unaligned sequences

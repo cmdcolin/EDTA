@@ -13,9 +13,9 @@ my $usage = "\nFilter HelitronScanner fasta candidates
 		-extlen	[int]	Length of flanking sequence for blast and output. Default: 30 (bp)
 		-miniden	[int]	Minimum identity for flanking sequence alignment. Default: 80 (%)
 		-mincov	[float]	Minimum coverage for flanking sequence alignment that counts as full match. Default: 0.8
-		-blastplus	[path]	Path to the blastn program. Defalut: read from \$ENV
+		-blastplus	[path]	Path to the blastn program. Default: read from \$ENV
 		-t|-threads	[int]	Number of threads to run this program. Default: 4
-		-h|-help	Display this help messege and exit.
+		-h|-help	Display this help message and exit.
 \n";
 
 my $genome = '';

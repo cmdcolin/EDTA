@@ -1,6 +1,6 @@
 # convert minimap2 paf file to blastn format 6 files
 #   - each output contains ≤ 50M hits (~5Gb)
-#   - multithreading acclerated
+#   - multithreading accelerated
 #   - keep the sequence input order in the output file(s)
 # contributors: Herui Liao, Chris Benson, Shujun Ou
 

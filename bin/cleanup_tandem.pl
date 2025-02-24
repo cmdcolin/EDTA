@@ -12,7 +12,7 @@ my $usage="
 		-nr		[0-1]	Ambuguous sequence percentage cutoff; discard the entire sequence if > this number; default: 1
 		-minlen		[int]	Minimum sequence length filter after clean up; default: 100 (bp)
 		-maxlen		[int]	Maximum sequence length filter after clean up; default: 25000 (bp)
-		-cleanN		[0|1]	Retain (0) or remove (1) the -misschar taget in output sequence; default: 0
+		-cleanN		[0|1]	Retain (0) or remove (1) the -misschar target in output sequence; default: 0
 		-cleanT		[0|1]	Remove entire seq. if any terminal seq (default: 20bp, set by -Tlen) has 75% of N (-cleanT 1); disabled by default (-cleanT 0).
 		-Tlen		[int]	The length of terminal sequence for the -cleanT parameter; default: 20 (bp)
 		-minrm		[int]	The minimum length of -misschar to be removed if -cleanN 1; default: 1.

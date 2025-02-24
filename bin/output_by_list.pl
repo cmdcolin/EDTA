@@ -49,7 +49,7 @@ while(<LS>){
 	next unless defined $loc;
 	$loc=~s/\|.*$//;
 	$loc=~s/\[.*\]//g;
-	if ($msuL){ #for MSU LOC position recognision 
+	if ($msuL){ #for MSU LOC position recognition 
 		$loc=~s/#.*//;
 		$loc=~s/\.+$//;
 		$loc=~s/^.*[_:\-.]+([0-9]+)[_:\-.]+([0-9]+)$/$1..$2/;

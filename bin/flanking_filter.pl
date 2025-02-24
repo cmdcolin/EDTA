@@ -10,19 +10,19 @@ my $usage = "\nFilter HelitronScanner fasta candidates
 		-genome	[file]	The multifasta file that used to generate the -query
 		-query	[file]	The candidate TE sequence to be filtered by this script
 		-extlen	[int]	The length of extended flanking sequence in -query. Default: 30 (bp)
-		-tgt_out	[int]	Output taget site with [int] length on each terminal. Default: 15 (bp)
+		-tgt_out	[int]	Output target site with [int] length on each terminal. Default: 15 (bp)
 		-miniden	[int]	Minimum identity for flanking sequence alignment. Default: 80 (%)
 		-mincov	[float]	Minimum coverage for flanking sequence alignment that counts as full match. Default: 0.8
 		-maxct	[int]	Maximum allowed copy number for flanking sequence for a true element. Default: 1.
-		-blastplus	[path]	Path to the blastn program. Defalut: read from \$ENV
+		-blastplus	[path]	Path to the blastn program. Default: read from \$ENV
 		-t|-threads	[int]	Number of threads to run this program. Default: 4
-		-h|-help	Display this help messege and exit.
+		-h|-help	Display this help message and exit.
 \n";
 
 my $genome = '';
 my $query = '';
 my $ext_len = 30; #extend 30 bp on each end
-my $tgt_out = 15; #output taget site with this length on each terminal
+my $tgt_out = 15; #output target site with this length on each terminal
 my $min_iden = 80; #minimum identity for flanking sequence alignment (%)
 my $min_cov = 0.8; #minimum coverage for flanking sequence alignment that counts as full match
 my $max_ct = 1; #maximum allowed copy number for flanking sequence. Either side exceeding this number will expire the candidate unless the joint flanking is also repetitive (column 4)

@@ -74,7 +74,7 @@ while (<GFF>){
 		}
 	$class = "nonTIR/$class" if $class =~ /(Crypton_YR_transposon|helitron)/i;
 
-	# determine $type for struc-homo TE annotation merging
+	# determine $type for struct-homo TE annotation merging
 	# $type is critical for get_frag.pl and keep_nest.pl, 
 	# if this info is not properlly assigned, the resulting bed file is wrong and EDTA.TEanno.sum will be empty
 	# $type should match what's listed in util/TE_Sequence_Ontology.txt

@@ -15,7 +15,7 @@ my $threads = 16;
 
 # dependencies
 my $combine = "~/las/git_bin/EDTA/util/combine_overlap.pl";
-my $substract = "~/las/git_bin/EDTA/util/substract.pl";
+my $subtract = "~/las/git_bin/EDTA/util/substract.pl";
 my $call_seq = "~/las/git_bin/EDTA/util/call_seq_by_list.pl";
 my $RepatMasker = '';
 
@@ -29,7 +29,7 @@ if (1){
 `perl $combine $candidate.list $candidate.list.cmb`;
 
 # get non-repeat regions with filter
-`perl $substract $candidate.list.cmb $repeat.cmb`;
+`perl $subtract $candidate.list.cmb $repeat.cmb`;
 `perl -nle 'my (\$chr, \$start, \$end)=(split)[0,1,2]; my \$len=abs(\$start-\$end)+1; next if \$len<$max_uniq_len; print "\$chr:\$start..\$end\\t\$chr:\$start..\$end"' $candidate.list.cmb-$repeat.cmb > $candidate.list.uniq`;
 `perl $call_seq $candidate.list.uniq -C $genome > $candidate.list.uniq.max$max_uniq_len.fa`;
 #`perl $call_seq $candidate.list.uniq -C $genome > $candidate.list.uniq.fa`;

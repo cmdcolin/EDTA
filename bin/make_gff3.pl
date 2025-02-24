@@ -70,7 +70,7 @@ while (<List>){
 		}
 	my $chr_ori=$chr;
 	if (exists $seq_flag{$chr_ori}){
-		print GFF "##sequence-region   $chr_ori 1 $seq_flag{$chr_ori}[1]\n"; #seqence length
+		print GFF "##sequence-region   $chr_ori 1 $seq_flag{$chr_ori}[1]\n"; #sequence length
 		delete $seq_flag{$chr_ori};
 		}
 #	my $info = "Name=$id;motif=$motif;tsd=$TSD;ltr_identity=$sim;method=structural";

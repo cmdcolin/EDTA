@@ -5,11 +5,11 @@ use threads;
 use Thread::Queue;
 use threads::shared;
 
-#usage: perl substract_parallel.pl minuend.list subtrahend.list thread_num
+#usage: perl subtract_parallel.pl minuend.list subtrahend.list thread_num
 #Author: Shujun Ou (oushujun@msu.edu), 08/02/2019
 # 05/30/2023, ChatGPT v3.5
 
-my $usage = "\n\tperl substract_parallel.pl minuend.list subtrahend.list thread_num\n\n";
+my $usage = "\n\tperl subtract_parallel.pl minuend.list subtrahend.list thread_num\n\n";
 die $usage unless @ARGV >= 2;
 
 ## read thread number
@@ -44,7 +44,7 @@ close Minuend;
 
 ## initiate a number of worker threads and run
 foreach (1..$threads){
-	threads -> create(\&substract);
+	threads -> create(\&subtract);
 	}
 foreach (threads -> list()){
 	$_ -> join();
@@ -57,8 +57,8 @@ foreach my $id (sort {$a cmp $b} keys %diff){
 	}
 close Diff;
 
-## subrotine to perform substraction
-sub substract(){
+## subrotine to perform subtraction
+sub subtract(){
 	while (defined ($_ = $queue->dequeue())){
 	my $keep=1;
 	my ($chr, $from, $to) = (@{$_}[0], @{$_}[1], @{$_}[2]);

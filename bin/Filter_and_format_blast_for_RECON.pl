@@ -17,7 +17,7 @@ while (<IN>) {
     my @f = split;
     die "This blast report is not formatted correctly. Exiting.\n"
         unless @f == 12;
-    # comment the next line out if compairing one sequence to itself (e.g., chrI -> chrI)
+    # comment the next line out if comparing one sequence to itself (e.g., chrI -> chrI)
     next if (($f[0] eq $f[1]) and (($f[6] == $f[8]) | ($f[7] ==$f[9])));
     if ($f[2] == 100.00) {
     printf("%06d %03d %08d %08d %s %08d %08d %s \n",

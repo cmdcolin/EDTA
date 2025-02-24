@@ -51,7 +51,7 @@ close Minuend;
 
 ## initiate a number of worker threads and run
 foreach (1..$threads){
-	threads -> create(\&substract);
+	threads -> create(\&subtract);
 	}
 foreach (threads -> list()){
 	$_ -> join();
@@ -64,8 +64,8 @@ foreach my $id (sort {$a cmp $b} keys %diff){
 	}
 close Diff;
 
-## subrotine to perform substraction
-sub substract(){
+## subrotine to perform subtraction
+sub subtract(){
 	while (defined ($_ = $queue->dequeue())){
 	my ($chr, $from, $to, $type) = (@{$_}[0], @{$_}[1], @{$_}[2], @{$_}[3]);
 	foreach my $substr (@{$substr{$chr}}){

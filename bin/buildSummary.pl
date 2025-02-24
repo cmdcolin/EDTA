@@ -68,7 +68,7 @@ Displays the version of the program
 If the *.out file is manually constructed (i.e., not produced by
 RepeatMasker), you need to specify -genome_size and -seq_count so 
 that % can be correctly calculated. If you don't want to specify 
-these two values manually, you may use this option to privide a 
+these two values manually, you may use this option to provide a 
 stats file of the genome produced by count_base.pl in the EDTA 
 package. When -stats is provided, the -genome_size and -seq_count 
 values will be ignored.
@@ -147,7 +147,7 @@ my $DEBUG = 0;
 #  e.g.
 #   -t: Single letter binary option
 #   -t=s: String parameters
-#   -t=i: Number paramters
+#   -t=i: Number parameters
 #
 my @getopt_args = (
                     '-version',                 # print out the version and exit

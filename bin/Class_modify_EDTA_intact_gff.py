@@ -1,7 +1,7 @@
 #TODO only include one target site duplication for higher level TEs
 #TODO dealwith the case that one TE contain two inserted TEs
 #TODO define TE direction for those repeat region with ? at strand column, I found this is
-#       not necessary because cd-hit-est will consider direction inforamtion. Do domain prediction
+#       not necessary because cd-hit-est will consider direction information. Do domain prediction
 #       for all consensus sequence at the end will be sufficient
 import re
 
